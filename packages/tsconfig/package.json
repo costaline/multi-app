@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "files": [
+    "astro.json",
     "base.json",
-    "nextjs.json",
     "react-library.json"
   ]
 }
