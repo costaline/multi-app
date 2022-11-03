@@ -28,8 +28,11 @@ module.exports = {
 		'import/resolver': {
 			typescript: {
 				alwaysTryTypes: true,
-				project: 'apps/*/tsconfig.json',
+				project: ['tsconfig.json','apps/*/tsconfig.json', 'packages/*/tsconfig.json'],
 			},
+			node: {
+				project: ['tsconfig.json','apps/*/tsconfig.json', 'packages/*/tsconfig.json'],
+			}
 		},
 	},
 
@@ -153,6 +156,7 @@ module.exports = {
 						allowNullableNumber: true,
 					},
 				],
+				'@typescript-eslint/triple-slash-reference': 'warn',
 			},
 		},
 	],
