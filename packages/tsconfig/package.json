@@ -6,6 +6,7 @@
     "astro.json",
     "base.json",
     "react.json",
-    "react-library.json"
+    "react-library.json",
+    "vue.json"
   ]
 }
