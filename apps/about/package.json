@@ -16,6 +16,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.2.0",
     "eslint-config-custom": "*",
+    "postcss-config-custom": "*",
     "stylelint-config-custom": "*",
     "typescript": "^4.6.4",
     "tsconfig": "*",

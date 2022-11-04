@@ -1,4 +1,6 @@
 .eslintrc.*
 */eslint-config-custom/*
+*/postcss-config-custom/*
 astro.config.ts
 vite.config.ts
+postcss.config.*

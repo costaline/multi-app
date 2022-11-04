@@ -21,6 +21,7 @@
     "@vitejs/plugin-react": "^2.2.0",
     "tsconfig": "*",
     "eslint-config-custom": "*",
+    "postcss-config-custom": "*",
     "stylelint-config-custom": "*",
     "typescript": "^4.6.4",
     "vite": "^3.2.0"

@@ -1,0 +1,14 @@
+{
+  "name": "postcss-config-custom",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "postcss": "^8.4.18",
+    "postcss-preset-env": "^7.8.2"
+  },
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
+}
