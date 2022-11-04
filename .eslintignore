@@ -1,2 +1,4 @@
 .eslintrc.*
 */eslint-config-custom/*
+astro.config.ts
+vite.config.ts

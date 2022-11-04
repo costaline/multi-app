@@ -12,13 +12,15 @@
   "packageManager": "yarn@1.22.19",
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "dev": "dotenv -c development -- turbo run dev --parallel",
     "lint": "turbo run lint",
     "lint:style": "turbo run lint:style",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "dependencies": {},
   "devDependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv-cli": "^6.0.0",
     "eslint-config-custom": "*",
     "prettier": "latest",
     "prettier-plugin-astro": "^0.7.0",

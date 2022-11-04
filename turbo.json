@@ -13,6 +13,15 @@
 		},
     "dev": {
       "cache": false
-    }
+    },
+		"docs#dev": {
+			"env": ["APP_DOCS_PORT"]
+		},
+		"homes#dev": {
+			"env": ["APP_HOME_PORT"]
+		},
+		"about#dev": {
+			"env": ["APP_ABOUT_PORT"]
+		}
   }
 }
