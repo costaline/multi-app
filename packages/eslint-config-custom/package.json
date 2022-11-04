@@ -5,7 +5,8 @@
   "license": "MIT",
   "files": [
     "react.js",
-    "astro.js"
+    "astro.js",
+    "vue.js"
   ],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.42.0",
@@ -20,10 +21,12 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-n": "^15.4.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-prettier-vue": "^4.2.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-simple-import-sort": "^8.0.0"
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-vue": "^9.7.0"
   },
   "devDependencies": {
     "typescript": "^4.7.4"

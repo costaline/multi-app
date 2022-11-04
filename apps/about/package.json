@@ -6,13 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx,vue}\""
   },
   "dependencies": {
     "vue": "^3.2.41"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.2.0",
+    "eslint-config-custom": "*",
     "typescript": "^4.6.4",
     "tsconfig": "*",
     "vite": "^3.2.0",
