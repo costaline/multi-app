@@ -9,13 +9,15 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx,astro}\""
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx,astro}\"",
+    "lint:style": "stylelint \"src/**/*.{css,astro,html}\""
   },
   "dependencies": {
     "astro": "^1.6.0"
   },
   "devDependencies": {
     "tsconfig": "*",
-    "eslint-plugin-custom": "*"
+    "eslint-plugin-custom": "*",
+    "stylelint-config-custom": "*"
   }
 }

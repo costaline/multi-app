@@ -8,6 +8,9 @@
     "lint": {
       "outputs": []
     },
+		"lint:style": {
+			"outputs": []
+		},
     "dev": {
       "cache": false
     }

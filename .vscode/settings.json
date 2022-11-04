@@ -8,7 +8,16 @@
 		"vue",
 		"astro"
 	],
+	"stylelint.validate": [
+		"css",
+		"postcss",
+		"vue",
+		"astro"
+	],
 	"[astro]": {
 		"editor.defaultFormatter": "astro-build.astro-vscode"
 	},
+	"[css]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint"
+	}
 }

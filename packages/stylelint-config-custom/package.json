@@ -1,0 +1,22 @@
+{
+  "name": "stylelint-config-custom",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "postcss-html": "^1.5.0",
+    "stylelint": "^14.14.1",
+    "stylelint-config-clean-order": "^2.0.0",
+    "stylelint-config-css-modules": "^4.1.0",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-hudochenkov": "^8.0.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^29.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
