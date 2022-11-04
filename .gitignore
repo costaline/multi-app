@@ -32,8 +32,4 @@ yarn-error.log*
 # turbo
 .turbo
 
-**/.vscode/**
-!**/.vscode/extensions.json
-!**/.vscode/launch.json
-
 .idea
