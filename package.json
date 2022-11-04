@@ -4,7 +4,7 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "configs/*"
   ],
   "engines": {
     "node": ">=16.0.0"
