@@ -16,18 +16,21 @@ import HelloWorld from './components/HelloWorld.vue'
 	<HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-	will-change: filter;
-	height: 6em;
-	padding: 1.5em;
-}
+<style scoped lang="sass">
+.logo
+	will-change: filter
 
-.logo:hover {
-	filter: drop-shadow(0 0 2em #646cffaa);
-}
+	height: 6em
+	padding: 1.5em
 
-.logo.vue:hover {
-	filter: drop-shadow(0 0 2em #42b883aa);
-}
+	background: white
+	border: 2px solid red
+
+.logo:hover
+	$boo: 42
+
+	filter: drop-shadow(0 0 2em #646cffaa)
+
+.logo.vue:hover
+	filter: drop-shadow(0 0 2em #42b883aa)
 </style>

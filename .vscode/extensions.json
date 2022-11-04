@@ -3,6 +3,7 @@
 		"dbaeumer.vscode-eslint",
 		"astro-build.astro-vscode",
 		"Vue.volar",
-		"stylelint.vscode-stylelint"
+		"stylelint.vscode-stylelint",
+		"syler.sass-indented"
 	]
 }

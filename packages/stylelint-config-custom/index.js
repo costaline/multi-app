@@ -21,7 +21,6 @@ module.exports = {
 		'at-rule-no-unknown': null,
 		'color-hex-case': 'lower',
 		'color-hex-length': 'long',
-		'declaration-block-trailing-semicolon': 'always',
 		'declaration-colon-space-after': 'always-single-line',
 		'declaration-colon-space-before': 'never',
 		'indentation': 'tab',
@@ -34,4 +33,19 @@ module.exports = {
 		'selector-class-pattern': null,
 		'max-empty-lines': [1, {ignore: ['comments']}]
 	},
+
+	overrides: [
+		{
+			files: ["*.css", "**/*.css"],
+			extends: ['./css.js']
+		},
+		{
+			files: ['*.scss', '**/*.scss', '*.sass', '**/*.sass'],
+			extends: ['./sass.js']
+		},
+		{
+			files: ["*.vue", "**/*.vue"],
+			extends: ['./vue.js']
+		},
+	]
 }

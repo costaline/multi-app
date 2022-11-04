@@ -12,8 +12,14 @@
 		"css",
 		"postcss",
 		"vue",
-		"astro"
+		"astro",
+		"sass",
+		"scss"
 	],
+	"css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+	"stylelint.config": null,
 	"[astro]": {
 		"editor.defaultFormatter": "astro-build.astro-vscode"
 	},
