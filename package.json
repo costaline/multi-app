@@ -20,6 +20,7 @@
   "devDependencies": {
     "eslint-config-custom": "*",
     "prettier": "latest",
+    "prettier-plugin-astro": "^0.7.0",
     "turbo": "latest"
   }
 }

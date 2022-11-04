@@ -8,12 +8,14 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx,astro}\""
   },
   "dependencies": {
     "astro": "^1.6.0"
   },
   "devDependencies": {
-    "tsconfig": "*"
+    "tsconfig": "*",
+    "eslint-plugin-custom": "*"
   }
 }
