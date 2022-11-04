@@ -16,7 +16,7 @@
     "astro": "^1.6.0"
   },
   "devDependencies": {
-    "tsconfig": "*",
+    "tsconfig-custom": "*",
     "eslint-plugin-custom": "*",
     "postcss-config-custom": "*",
     "stylelint-config-custom": "*"
