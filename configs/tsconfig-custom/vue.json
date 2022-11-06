@@ -3,6 +3,8 @@
 	"display": "Vue",
 	"extends": "./base.json",
 	"compilerOptions": {
-		"lib": ["ESNext", "DOM"]
+		"lib": ["ESNext", "DOM"],
+		"noEmit": true,
+		"jsx": "preserve"
 	}
 }
