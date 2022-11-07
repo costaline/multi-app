@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  home:
+    container_name: multi-app-home
+    build:
+      context: .
+      dockerfile: ./apps/home/Dockerfile
+    restart: unless-stopped
+    command: npx -y serve -s .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    networks:
+      - multi-app-network
+
+  about:
+    container_name: multi-app-about
+    build:
+      context: .
+      dockerfile: ./apps/about/Dockerfile
+    restart: unless-stopped
+    command: npx -y serve -s .
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+    networks:
+      - multi-app-network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    container_name: multi-app-nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - home
+      - about
+    networks:
+      - multi-app-network
+
+networks:
+  multi-app-network:
+    driver: bridge
