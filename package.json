@@ -4,7 +4,8 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "configs/*"
+    "configs/*",
+    "packages/*"
   ],
   "engines": {
     "node": ">=16.0.0"
@@ -21,7 +22,9 @@
     "lint:style": "turbo run lint:style",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "lit": "^2.4.0"
+  },
   "devDependencies": {
     "cross-env": "^7.0.3",
     "dotenv-cli": "^6.0.0",

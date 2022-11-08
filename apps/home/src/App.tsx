@@ -1,10 +1,13 @@
 import { useState } from 'react'
+// import {MyElement} from 'wc'
 
 import './App.css'
 import reactLogo from './assets/react.svg'
 
 function App() {
 	const [count, setCount] = useState(0)
+
+
 
 	return (
 		<div className="App">
@@ -18,6 +21,9 @@ function App() {
 					<img alt="React logo" className="logo react" src={reactLogo} />
 				</a>
 			</div>
+
+			<my-element docsHint={`hello from counter: ${count}`}></my-element>
+
 			<h1>Vite + React</h1>
 			<div className="card">
 				<button onClick={() => setCount((count) => count + 1)}>
