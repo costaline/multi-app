@@ -15,7 +15,11 @@ export default defineConfig(({ mode }) => {
 			},
 		},
 		server: {
-			port: Number(env.PORT || env.APP_ABOUT_PORT) || 3001
+			host: '0.0.0.0',
+			port: Number(env.PORT || env.APP_ABOUT_PORT) || 3001,
+			watch: {
+				usePolling: true,
+			},
 		}
 	}
 })

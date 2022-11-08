@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  home:
+    build:
+      context: .
+      dockerfile: ./apps/home/Dockerfile.dev
+    command: yarn dev --filter=home
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    volumes:
+      - ./apps/home/src:/app/apps/home/src
+      - ./apps/home/public:/app/apps/home/public
+
+  about:
+    build:
+      context: .
+      dockerfile: ./apps/about/Dockerfile.dev
+    command: yarn dev --filter=about
+    stdin_open: true
+    tty: true
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+    volumes:
+      - ./apps/about/src:/app/apps/about/src
+      - ./apps/about/public:/app/apps/about/public
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile.dev
+    volumes:
+      - ./nginx/nginx.dev.conf:/etc/nginx/conf.d/nginx.conf
