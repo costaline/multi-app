@@ -5,6 +5,7 @@
   "files": [
     "astro.json",
     "base.json",
+    "lit.json",
     "react.json",
     "vue.json"
   ]

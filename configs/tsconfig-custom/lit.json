@@ -1,0 +1,13 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "Lit",
+	"extends": "./base.json",
+	"compilerOptions": {
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"outDir": "./types",
+		"experimentalDecorators": true,
+		"useDefineForClassFields": false
+	}
+}
