@@ -47,5 +47,18 @@ module.exports = {
 			files: ["*.vue", "**/*.vue"],
 			extends: ['./vue.js']
 		},
+		{
+			files: [
+				'*.js',
+				'**/*.js',
+				'*.jsx',
+				'**/*.jsx',
+				'*.ts',
+				'**/*.ts',
+				'*.tsx',
+				'**/*.tsx',
+			],
+			extends: ['./css-in-js.cjs']
+		}
 	]
 }
