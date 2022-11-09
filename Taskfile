@@ -1,18 +1,62 @@
 #!/bin/bash
 PATH=./node_modules/.bin:$PATH
 ################################################################################
+################################### HELPERS ####################################
+################################################################################
+function print_row {
+	printf "  %-10s %-10s\n" "$1" "$2"
+}
+################################################################################
 ##################################### PROD #####################################
 ################################################################################
-function task:prod_with_vagrant__start {
+function prod_with_vagrant_start {
 	vagrant up
+}
+
+function prod_with_vagrant_stop {
+	vagrant halt
+}
+
+function prod_with_vagrant_destroy {
+	vagrant destroy
+}
+
+function task:prod_with_vagrant {
+	local target=$1
+	shift
+
+	case $1 in
+		start) prod_with_vagrant_start "$@";;
+		stop) prod_with_vagrant_stop "$@";;
+		destroy) prod_with_vagrant_destroy "$@";;
+		*)
+			echo "options:"
+			print_row "start" "start vm"
+			print_row "stop" "stop vm"
+			print_row "destroy" "destroy vm"
+			;;
+	esac
 }
 ################################################################################
 ###################################### DEV #####################################
 ################################################################################
-function task:dev_with_docker__start {
+function dev_with_docker_start {
 	#	run in parallel
 	yarn dev --filter=lit-wc &
 	docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+}
+
+function task:dev_with_docker {
+	local target=$1
+	shift
+
+	case $target in
+		start) dev_with_docker_start "$@";;
+		*)
+			echo "options:"
+			print_row "start" "start vm"
+			;;
+	esac
 }
 ################################################################################
 ################################### TASKFILE ###################################
@@ -31,7 +75,7 @@ function task:help {
 
 TIMEFORMAT="Task completed in %3lR"
 # shellcheck disable=SC2145
-time "task:${@:-default}" || time "task:help"
+time "task:${@:-default}"
 ################################################################################
 ##################################### REFS #####################################
 ################################################################################
