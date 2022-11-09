@@ -1,5 +1,18 @@
 version: "3"
 
+# https://docs.docker.com/compose/compose-file/compose-file-v3/#extension-fields
+x-lit-wc-dist-volume:
+  &lit-wc-dist-volume
+  type: bind
+  source: ./packages/lit-wc/dist
+  target: /app/packages/lit-wc/dist
+
+x-lit-wc-type-volume:
+  &lit-wc-types-volume
+  type: bind
+  source: ./packages/lit-wc/types
+  target: /app/packages/lit-wc/types
+
 services:
   home:
     build:
@@ -13,6 +26,8 @@ services:
     environment:
       - PORT=3000
     volumes:
+      - *lit-wc-dist-volume
+      - *lit-wc-types-volume
       - ./apps/home/src:/app/apps/home/src
       - ./apps/home/public:/app/apps/home/public
 
@@ -28,6 +43,8 @@ services:
     environment:
       - PORT=3001
     volumes:
+      - *lit-wc-dist-volume
+      - *lit-wc-types-volume
       - ./apps/about/src:/app/apps/about/src
       - ./apps/about/public:/app/apps/about/public
 

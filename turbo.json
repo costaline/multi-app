@@ -17,11 +17,13 @@
 		"docs#dev": {
 			"env": ["APP_DOCS_PORT"]
 		},
-		"homes#dev": {
-			"env": ["APP_HOME_PORT"]
+		"home#dev": {
+			"env": ["APP_HOME_PORT"],
+			"dependsOn": ["lit-wc#build"]
 		},
 		"about#dev": {
-			"env": ["APP_ABOUT_PORT"]
+			"env": ["APP_ABOUT_PORT"],
+			"dependsOn": ["lit-wc#build"]
 		}
   }
 }

@@ -10,6 +10,8 @@ function task:prod_with_vagrant__start {
 ###################################### DEV #####################################
 ################################################################################
 function task:dev_with_docker__start {
+	#	run in parallel
+	yarn dev --filter=lit-wc &
 	docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
 }
 ################################################################################
