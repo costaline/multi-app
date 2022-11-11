@@ -2,6 +2,7 @@
 	"extends": "tsconfig-custom/lit.json",
   "compilerOptions": {
 		"baseUrl": ".",
+		"outDir": "./types",
 		"paths": {
 			"@@/*": ["./src/*"]
 		}

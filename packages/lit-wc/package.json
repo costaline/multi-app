@@ -13,7 +13,7 @@
     "types"
   ],
   "scripts": {
-    "dev": "concurrently -n dev,watch-build \"yarn vite\" \"yarn build -- --watch\" ",
+    "dev": "concurrently -n dev,watch-build,watch-types \"yarn vite\" \"yarn vite build --watch\" \"tsc --watch\"",
     "build": "tsc && vite build"
   },
   "dependencies": {
