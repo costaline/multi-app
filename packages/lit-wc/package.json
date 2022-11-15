@@ -14,14 +14,24 @@
   ],
   "scripts": {
     "dev": "concurrently -n dev,watch-build,watch-types \"yarn vite\" \"yarn vite build --watch\" \"tsc --watch\"",
-    "build": "tsc && vite build"
+    "build": "tsc && vite build",
+    "storybook": "start-storybook -p 6006 --no-open",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "lit": "*"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/builder-vite": "^0.2.5",
+    "@storybook/web-components": "^6.5.13",
+    "babel-loader": "^8.3.0",
     "concurrently": "^7.5.0",
     "eslint-config-custom": "*",
+    "lit-html": "^2.4.0",
     "stylelint-config-custom": "*",
     "tsconfig-custom": "*",
     "typescript": "^4.6.4",
