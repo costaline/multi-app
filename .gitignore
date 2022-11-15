@@ -29,6 +29,10 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# declaration
+**/types/*
+!**/src/**/types/*
+
 # turbo
 .turbo
 

@@ -4,3 +4,9 @@
 astro.config.ts
 vite.config.ts
 postcss.config.*
+
+dist/
+build/
+
+**/types/*
+!**/src/**/types/*
