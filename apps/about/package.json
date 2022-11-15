@@ -11,6 +11,7 @@
     "lint:style": "stylelint \"src/**/*.{css,vue,html}\""
   },
   "dependencies": {
+    "lit-wc": "*",
     "vue": "^3.2.41"
   },
   "devDependencies": {

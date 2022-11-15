@@ -22,7 +22,8 @@ function App() {
 				</a>
 			</div>
 
-			<my-element docsHint={`hello from counter: ${count}`}></my-element>
+			{/*<my-element docsHint={`hello from counter: ${count}`}></my-element>*/}
+			<demo-element name="REACT">Some text</demo-element>
 
 			<h1>Vite + React</h1>
 			<div className="card">

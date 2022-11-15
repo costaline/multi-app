@@ -8,7 +8,14 @@ export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), '')
 
 	return {
-		plugins: [vue()],
+		plugins: [vue({
+			template: {
+				compilerOptions: {
+					// treat all tags with a dash as custom elements
+					isCustomElement: (tag) => tag.includes('-')
+				}
+			}
+		})],
 		resolve: {
 			alias: {
 				'@@': fileURLToPath(new URL('./src', import.meta.url)),
