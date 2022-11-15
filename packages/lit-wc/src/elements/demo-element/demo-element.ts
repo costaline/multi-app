@@ -1,6 +1,8 @@
 import { css, html, LitElement, TemplateResult } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
+import type { WebComponentJsxAttributes } from '../../types'
+
 /**
  * An example element.
  *
@@ -45,9 +47,11 @@ export class DemoElement extends LitElement {
 	}
 }
 
-type WebComponentProps<E, P extends keyof E> = Pick<E, P>
-
-export type DemoElementProps = WebComponentProps<DemoElement, 'name' | 'slot'>
+export type DemoElementProps = WebComponentJsxAttributes<
+	DemoElement,
+	'name',
+	'children'
+>
 
 declare global {
 	interface HTMLElementTagNameMap {
