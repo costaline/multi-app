@@ -1,3 +1,2 @@
 .stylelintrc.*
-*/stylelint-config-custom/*
-*/eslint-config-custom/*
+**/configs/**/*

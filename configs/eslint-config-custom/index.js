@@ -103,11 +103,15 @@ module.exports = {
 						'^\\./?$',
 					],
 					[
+						"^.*\\u0000$", // import type
+					],
+					[
 						// Styles
 						'\\.scoped\\.(css|scss|sass|styl|stylus)$',
 						'\\.(css|scss|sass|styl|stylus)$',
 						'\\.module\\.(css|scss|sass|styl|stylus)$',
-						'\\.(emcss)$', // emotion css-in-js
+						'\\.(emcss)$', // emotion css-in-js,
+						'\\.(litcss)$', // lit-element css-in-js,
 						// Images
 						'^.+\\.bmp$',
 						'^.+\\.jpe?g$',
