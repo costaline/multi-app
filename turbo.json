@@ -26,8 +26,7 @@
 			"dependsOn": ["lit-wc#build"]
 		},
 		"storybook": {
-			"cache": false,
-			"env": ["NODE_OPTIONS=--openssl-legacy-provider"]
+			"cache": false
 		}
 	}
 }
