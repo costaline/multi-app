@@ -14,6 +14,7 @@ import HelloWorld from './components/HelloWorld.vue'
 		</a>
 	</div>
 	<demo-element name="VUE">Some text</demo-element>
+	<global-nav/>
 	<HelloWorld msg="Vite + Vue" />
 </template>
 
