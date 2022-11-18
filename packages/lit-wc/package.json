@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "concurrently -n dev,watch-build,watch-types \"yarn vite\" \"yarn vite build --watch\" \"tsc --watch\"",
     "build": "tsc && vite build",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6001 --no-open",
     "build-storybook": "storybook build"
   },
   "dependencies": {
