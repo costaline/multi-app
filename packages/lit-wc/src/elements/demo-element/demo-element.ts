@@ -1,7 +1,7 @@
 import { css, html, LitElement, TemplateResult } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-import type { WebComponentJsxAttributes } from '../../types'
+import type { WebComponentJsxAttributes } from '@@/types'
 
 /**
  * An example element.
