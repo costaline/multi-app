@@ -1,30 +1,37 @@
 import './demo-element'
 
-import type { Meta, Story } from '@storybook/web-components'
 import { html } from 'lit'
 
 import type { DemoElementProps } from './demo-element'
+import type { Meta, StoryObj } from '@storybook/web-components'
 
-export default {
+const meta: Meta<DemoElementProps> = {
 	title: 'Demo Element',
+	tags: ['docsPage'],
+	parameters: {
+		// layout: 'centered',
+	},
+	render: (args: DemoElementProps) => {
+		return html`
+			<demo-element name=${args['name']}>${args['children']}</demo-element>
+		`
+	},
 	argTypes: {
 		name: {
 			type: 'string',
 			defaultValue: 'World',
 		},
-		slot: {
+		children: {
 			type: 'string',
-			description: 'Additional text',
+			defaultValue: 'some text',
 		},
 	},
-	parameters: {
-		layout: 'centered',
-	},
-} as Meta<DemoElementProps>
-
-const Template: Story<Partial<DemoElementProps>> = (args) => {
-	return html`<demo-element name=${args['name']}></demo-element>`
 }
 
-export const Default = Template.bind({})
-Default.args = {}
+export default meta
+
+type Story = StoryObj<DemoElementProps>
+
+export const Default: Story = {
+	args: {},
+}

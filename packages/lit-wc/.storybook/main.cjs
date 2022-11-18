@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -7,11 +8,11 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials"
   ],
-  "framework": "@storybook/web-components",
-  "core": {
-    "builder": "@storybook/builder-vite"
+  "framework": {
+    "name": "@storybook/web-components-vite",
+    "options": {}
   },
-  "features": {
-    "storyStoreV7": true
+  "docs": {
+    "docsPage": true
   }
 }

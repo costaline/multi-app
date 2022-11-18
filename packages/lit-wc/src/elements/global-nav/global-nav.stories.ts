@@ -1,20 +1,25 @@
 import './global-nav'
 
-import type { Meta, Story } from '@storybook/web-components'
 import { html } from 'lit'
 
 import type { GlobalNavProps } from './global-nav'
+import type { Meta, StoryObj } from '@storybook/web-components'
 
-export default {
+const meta: Meta<GlobalNavProps> = {
 	title: 'Global Nav',
+	tags: ['docsPage'],
 	parameters: {
-		layout: 'centered',
+		// layout: 'centered',
 	},
-} as Meta<GlobalNavProps>
-
-const Template: Story<GlobalNavProps> = () => {
-	return html`<global-nav></global-nav>`
+	render: () => {
+		return html`<global-nav></global-nav>`
+	},
 }
 
-export const Default = Template.bind({})
-Default.args = {}
+export default meta
+
+type Story = StoryObj<GlobalNavProps>
+
+export const Default: Story = {
+	args: {},
+}
