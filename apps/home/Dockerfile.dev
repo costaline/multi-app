@@ -12,6 +12,7 @@ COPY configs ./configs/
 COPY apps/home/package.json ./apps/home/package.json
 
 COPY packages/lit-wc/package.json ./packages/lit-wc/package.json
+COPY packages/global-css/package.json ./packages/global-css/package.json
 
 RUN yarn install
 
