@@ -19,6 +19,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "global-css": "*",
     "lit": "*"
   },
   "devDependencies": {
@@ -29,6 +30,7 @@
     "concurrently": "^7.5.0",
     "eslint-config-custom": "*",
     "lit-html": "2.4.0",
+    "postcss-config-custom": "*",
     "storybook": "7.0.0-alpha.50",
     "stylelint-config-custom": "*",
     "tsconfig-custom": "*",

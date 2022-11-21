@@ -13,7 +13,8 @@
     "lint:style": "stylelint \"src/**/*.{css,astro,html}\""
   },
   "dependencies": {
-    "astro": "^1.6.0"
+    "astro": "^1.6.0",
+    "global-css": "*"
   },
   "devDependencies": {
     "tsconfig-custom": "*",

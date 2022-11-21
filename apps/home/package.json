@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@types/node": "^18.11.9",
+    "global-css": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "lit-wc": "*"

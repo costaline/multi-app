@@ -4,6 +4,7 @@ import 'lit-wc'
 import App from '@@/App'
 
 import './index.css'
+import 'global-css/style.css'
 
 createRoot(document.getElementById('root') as HTMLElement).render(
 	<StrictMode>
