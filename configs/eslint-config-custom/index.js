@@ -110,6 +110,7 @@ module.exports = {
 						'\\.scoped\\.(css|scss|sass|styl|stylus)$',
 						'\\.(css|scss|sass|styl|stylus)$',
 						'\\.module\\.(css|scss|sass|styl|stylus)$',
+						'\\.(css|scss|sass|styl|stylus)\\?(inline|raw|string)$',
 						'\\.(emcss)$', // emotion css-in-js,
 						'\\.(litcss)$', // lit-element css-in-js,
 						// Images

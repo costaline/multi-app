@@ -1,12 +1,12 @@
 import { html, LitElement, unsafeCSS } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 import { classMap } from 'lit/directives/class-map.js'
-import styles from 'global-css/style.css?inline'
 
 import { navItems } from './nav-list'
 
 import type { TemplateResult } from 'lit'
 
+import styles from 'global-css/style.css?inline'
 import { globalNavStyles } from './gloabl-nav.litcss'
 
 @customElement('global-nav')
