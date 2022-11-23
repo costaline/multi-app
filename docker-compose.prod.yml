@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  strapi:
+    environment:
+      DATABASE_DB: ${STRAPI_POSTGRES_DB}
+      DATABASE_USER: ${STRAPI_POSTGRES_USER}
+      DATABASE_PASSWORD: ${STRAPI_POSTGRES_PASSWORD}
+      DATABASE_HOST: "strapi_db"
+    depends_on:
+      strapi_db:
+        condition: service_healthy
+    networks:
+      - multi-app-db-network
+
+  strapi_db:
+    image: postgres:15.1-alpine
+    container_name: multi-app-strapi-db
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready --username=strapidbuser --dbname=strapidb" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    environment:
+      POSTGRES_DB: ${STRAPI_POSTGRES_DB}
+      POSTGRES_USER: ${STRAPI_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${STRAPI_POSTGRES_PASSWORD}
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_strapi:/var/lib/postgresql/data
+    networks:
+      - multi-app-db-network
+
+volumes:
+  postgres_strapi:
+
+networks:
+  multi-app-db-network:
+    driver: bridge

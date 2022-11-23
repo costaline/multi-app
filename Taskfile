@@ -38,6 +38,25 @@ function task:prod_with_vagrant {
 	esac
 }
 ################################################################################
+################################# PROD DOCKER ##################################
+################################################################################
+function prod_with_docker_start {
+	docker compose --env-file ./.env.production.local -f docker-compose.yml -f docker-compose.prod.yml up --build
+}
+
+function task:prod_with_docker {
+	local target=$1
+	shift
+
+	case $target in
+		start) prod_with_docker_start "$@";;
+		*)
+			echo "options:"
+			print_row "start" "start vm"
+			;;
+	esac
+}
+################################################################################
 ###################################### DEV #####################################
 ################################################################################
 function dev_with_docker_start {
