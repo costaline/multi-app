@@ -52,6 +52,8 @@ services:
     build:
       context: .
       dockerfile: ./nginx/Dockerfile.dev
+    depends_on:
+      - api-main-strapi
     volumes:
       - ./nginx/nginx.dev.conf:/etc/nginx/conf.d/nginx.conf
 
