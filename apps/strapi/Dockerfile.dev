@@ -4,10 +4,10 @@ ENV NODE_ENV development
 
 WORKDIR /app
 
-COPY apps/api-main-strapi/package.json ./
+COPY apps/strapi/package.json ./
 
 RUN yarn install
 
-COPY apps/api-main-strapi/favicon.png ./favicon.png
+COPY apps/strapi/favicon.png ./favicon.png
 
 CMD ["yarn", "dev"]
