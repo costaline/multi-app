@@ -25,7 +25,7 @@ function task:prod_with_vagrant {
 	local target=$1
 	shift
 
-	case $1 in
+	case $target in
 		start) prod_with_vagrant_start "$@";;
 		stop) prod_with_vagrant_stop "$@";;
 		destroy) prod_with_vagrant_destroy "$@";;
