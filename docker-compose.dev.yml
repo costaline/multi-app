@@ -52,5 +52,26 @@ services:
     build:
       context: .
       dockerfile: ./nginx/Dockerfile.dev
+    depends_on:
+      - strapi
     volumes:
       - ./nginx/nginx.dev.conf:/etc/nginx/conf.d/nginx.conf
+
+  strapi:
+    build:
+      context: .
+      dockerfile: apps/strapi/Dockerfile.dev
+    container_name: multi-app-strapi
+    ports:
+      - '1337:1337'
+    restart: on-failure
+    volumes:
+      - ./apps/strapi/.tmp:/app/.tmp
+      - ./apps/strapi/config:/app/config
+      - ./apps/strapi/database:/app/config
+      - ./apps/strapi/public/uploads:/app/public/uploads
+      - ./apps/strapi/src:/app/src
+      - ./apps/strapi/.env:/app/.env
+      - ./apps/strapi/tsconfig.json:/app/tsconfig.json
+    networks:
+      - multi-app-network

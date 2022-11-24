@@ -15,13 +15,30 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--uartmode1", "file", File::NULL]
   end
 
+  # https://gist.github.com/jowave/9f9059cd79bd8e59398ac5f7fe7b6218
+  compose_env = Hash.new
+  if File.file?('.env.production.local')
+    # read lines "var=value" into hash
+    compose_env = Hash[*File.read('.env.production.local').split(/[=\n]+/)]
+    # ignore keys (lines) starting with #
+    compose_env.delete_if { |key, value| key.to_s.match(/^#.*/) }
+  end
+
   config.vm.provision :docker
-  config.vm.provision :docker_compose, yml: "/vagrant/docker-compose.yml", rebuild: true, run: "always"
+  config.vm.provision :docker_compose,
+    yml:[
+      "/vagrant/docker-compose.yml",
+      "/vagrant/docker-compose.prod.yml",
+    ],
+    rebuild: true,
+    env: compose_env,
+    run: "always"
 
   config.vm.provision :hosts do |provisioner|
     provisioner.add_host '127.0.0.1', [
       'multi-app.local',
-      'about.multi-app.local'
+      'about.multi-app.local',
+      'strapi.multi-app.local',
     ]
   end
 end

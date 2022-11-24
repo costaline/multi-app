@@ -39,6 +39,18 @@ services:
     depends_on:
       - home
       - about
+      - strapi
+    networks:
+      - multi-app-network
+
+  strapi:
+    build:
+      context: .
+      dockerfile: apps/strapi/Dockerfile
+    container_name: multi-app-strapi
+    ports:
+      - '1337:1337'
+    restart: on-failure
     networks:
       - multi-app-network
 

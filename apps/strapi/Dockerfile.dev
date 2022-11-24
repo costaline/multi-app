@@ -1,0 +1,13 @@
+FROM node:16-alpine
+
+ENV NODE_ENV development
+
+WORKDIR /app
+
+COPY apps/strapi/package.json ./
+
+RUN yarn install
+
+COPY apps/strapi/favicon.png ./favicon.png
+
+CMD ["yarn", "dev"]

@@ -25,7 +25,7 @@ function task:prod_with_vagrant {
 	local target=$1
 	shift
 
-	case $1 in
+	case $target in
 		start) prod_with_vagrant_start "$@";;
 		stop) prod_with_vagrant_stop "$@";;
 		destroy) prod_with_vagrant_destroy "$@";;
@@ -34,6 +34,25 @@ function task:prod_with_vagrant {
 			print_row "start" "start vm"
 			print_row "stop" "stop vm"
 			print_row "destroy" "destroy vm"
+			;;
+	esac
+}
+################################################################################
+################################# PROD DOCKER ##################################
+################################################################################
+function prod_with_docker_start {
+	docker compose --env-file ./.env.production.local -f docker-compose.yml -f docker-compose.prod.yml up --build
+}
+
+function task:prod_with_docker {
+	local target=$1
+	shift
+
+	case $target in
+		start) prod_with_docker_start "$@";;
+		*)
+			echo "options:"
+			print_row "start" "start vm"
 			;;
 	esac
 }
