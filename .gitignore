@@ -29,6 +29,10 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# env dir
+/.envs/**/.env
+/.envs/**/.env.*
+
 # declaration
 **/types/*
 !**/src/**/types/*

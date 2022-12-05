@@ -41,7 +41,7 @@ function task:prod_with_vagrant {
 ################################# PROD DOCKER ##################################
 ################################################################################
 function prod_with_docker_start {
-	docker compose --env-file ./.env.production.local -f docker-compose.yml -f docker-compose.prod.yml up --build
+	docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build
 }
 
 function task:prod_with_docker {
@@ -71,6 +71,43 @@ function task:dev_with_docker {
 
 	case $target in
 		start) dev_with_docker_start "$@";;
+		*)
+			echo "options:"
+			print_row "start" "start vm"
+			;;
+	esac
+}
+################################################################################
+################################## DEV SIMPLE ##################################
+################################################################################
+function dev_simple_prepare {
+	local target
+	target="./apps/strapi/.env"
+
+	{
+		printf '#%.0s' {1..28} && echo -n " "
+		echo -n "$(date +%F\ \(%a\)\ %H:%M)" # 2022-12-05 (Mon) 12:33
+		echo -n " " && printf '#%.0s' {1..28} && echo ""
+		echo "# copied from './.envs/strapi/.env'"
+		cat ./.envs/strapi/.env
+		echo ""
+		echo "# copied from './.envs/strapi/.env.development'"
+		cat ./.envs/strapi/.env.development
+		printf '#%.0s' {1..80} && echo ""
+	} >> $target
+}
+
+function dev_simple_start {
+	echo "start"
+}
+
+function task:dev_simple {
+	local target=$1
+	shift
+
+	case $target in
+		start) dev_simple_start "$@";;
+		prepare) dev_simple_prepare "$@";;
 		*)
 			echo "options:"
 			print_row "start" "start vm"

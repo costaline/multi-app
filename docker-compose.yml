@@ -50,6 +50,10 @@ services:
     container_name: multi-app-strapi
     ports:
       - '1337:1337'
+    env_file:
+      - ./.envs/strapi/.env
+    environment:
+      - STRAPI_ADMIN_BACKEND_URL=
     restart: on-failure
     networks:
       - multi-app-network

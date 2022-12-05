@@ -65,6 +65,8 @@ services:
     ports:
       - '1337:1337'
     restart: on-failure
+    env_file:
+      - ./.envs/strapi/.env.development
     volumes:
       - ./apps/strapi/.tmp:/app/.tmp
       - ./apps/strapi/config:/app/config

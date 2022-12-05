@@ -2,10 +2,9 @@ version: "3.9"
 
 services:
   strapi:
+    env_file:
+      - ./.envs/strapi/.env.production
     environment:
-      DATABASE_DB: ${STRAPI_POSTGRES_DB}
-      DATABASE_USER: ${STRAPI_POSTGRES_USER}
-      DATABASE_PASSWORD: ${STRAPI_POSTGRES_PASSWORD}
       DATABASE_HOST: "strapi_db"
     depends_on:
       strapi_db:
@@ -22,10 +21,9 @@ services:
       timeout: 5s
       retries: 5
       start_period: 10s
+    env_file:
+      - ./.envs/strapi/.env.production
     environment:
-      POSTGRES_DB: ${STRAPI_POSTGRES_DB}
-      POSTGRES_USER: ${STRAPI_POSTGRES_USER}
-      POSTGRES_PASSWORD: ${STRAPI_POSTGRES_PASSWORD}
       PGDATA: "/var/lib/postgresql/data/pgdata"
     ports:
       - "5432:5432"
