@@ -1,5 +1,4 @@
 #!/usr/bin/env ts-node
-/* eslint-disable no-console */
 import { createRequire } from 'module'
 import { Command } from 'commander'
 
