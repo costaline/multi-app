@@ -9,6 +9,7 @@
   },
   "scripts": {},
   "dependencies": {
+    "chalk": "^5.2.0",
     "commander": "^9.4.1",
     "ts-node": "^10.9.1"
   },

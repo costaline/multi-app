@@ -2,10 +2,12 @@
 import { exec } from 'child_process'
 import fs from 'fs/promises'
 
+import { log } from './log'
+
 export function cmd(...args: Array<string | number>): void {
 	exec(args.join(' '), (error, stdout, stderr) => {
-		if (error) return console.log(`error: ${error.message}`)
-		if (stderr) return console.log(`stderr: ${stderr}`)
+		if (error) return log.error(`error: ${error.message}`)
+		if (stderr) return log.error(`stderr: ${stderr}`)
 
 		console.log(stdout)
 	})
@@ -25,7 +27,7 @@ export async function read(pathToFile: string): Promise<string> {
 
 		return data
 	} catch (err) {
-		console.log(err)
+		log.error(err)
 
 		return ''
 	}
@@ -42,7 +44,7 @@ export async function append(
 
 		return true
 	} catch (err) {
-		console.log(err)
+		log.error(err)
 
 		return false
 	}

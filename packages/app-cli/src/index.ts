@@ -4,6 +4,7 @@ import { Command } from 'commander'
 
 import { ENVS_BY_APP } from './constants'
 import { append, cmd, getEnvDateTitle, read } from './helpers'
+import { log } from './log'
 
 const require = createRequire(import.meta.url)
 const { version } = require('../package.json')
@@ -35,8 +36,8 @@ program
 				try {
 					await append(`./apps/${app}/.env`, '', true)
 				} catch (e) {
-					if (e instanceof Error) console.log('Prepare envs error:', e.message)
-					else console.log('something went wrong...')
+					if (e instanceof Error) log.error('Prepare envs error:', e.message)
+					else log.error('something went wrong...')
 				}
 
 				return
@@ -65,8 +66,8 @@ program
 
 				await append(`./apps/${app}/.env`, content, options.rewrite)
 			} catch (e) {
-				if (e instanceof Error) console.log('Prepare envs error:', e.message)
-				else console.log('something went wrong...')
+				if (e instanceof Error) log.error('Prepare envs error:', e.message)
+				else log.error('something went wrong...')
 			}
 		}
 	)
