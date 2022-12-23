@@ -3,6 +3,7 @@ import inquirer from 'inquirer'
 
 import { RUNNABLE_APPS } from '../constants'
 import { cmdSpawn } from '../helpers/cmd'
+import { log } from '../helpers/log'
 
 export function makeDevCommand(): Command {
 	const dev = new Command('develop')
@@ -25,7 +26,7 @@ interface Options {
 
 function action(options: Options): void {
 	if (options.docker) {
-		cmdSpawn('yarn', ['dev', '--filter=lit-wc'])
+		runWithFilter(['lit-wc'])
 		cmdSpawn('docker', [
 			'compose',
 			'-f',
@@ -36,44 +37,64 @@ function action(options: Options): void {
 			'--build',
 		])
 	} else if (options.interactive) {
-		inquirer
-			.prompt([
-				{
-					type: 'checkbox',
-					message: 'Select apps',
-					name: 'apps',
-					choices: [
-						...Object.entries(RUNNABLE_APPS).reduce<
-							Array<inquirer.Separator | { name: string }>
-						>((acc, [type, apps]) => {
-							return [
-								...acc,
-								new inquirer.Separator(` = ${type} apps = `),
-								...apps.map((app) => ({ name: app })),
-							]
-						}, []),
-					],
-				},
-			])
-			.then((answers) => {
-				const apps = answers['apps'].map((app: string) => `--filter=${app}`)
-
-				cmdSpawn('yarn', ['dev', ...apps])
-			})
-			.catch((error) => {
-				if (error.isTtyError) {
-					console.log("Prompt couldn't be rendered in the current environment")
-				} else {
-					console.log('Something else went wrong')
-				}
-			})
+		runInteractive()
 	} else {
 		if (options.filter?.length) {
-			const apps = options.filter.map((app) => `--filter=${app}`)
-
-			cmdSpawn('yarn', ['dev', ...apps])
+			runWithFilter(options.filter)
 		} else {
-			cmdSpawn('yarn', ['dev', '--filter=docs'])
+			runWithFilter(['docs'])
 		}
 	}
+}
+
+function runWithFilter(apps: string[]): void {
+	const appsWithFilter = apps.map((app) => `--filter=${app}`)
+
+	cmdSpawn('yarn', ['dev', ...appsWithFilter])
+}
+
+function runInteractive(): void {
+	inquirer
+		.prompt([
+			{
+				type: 'checkbox',
+				message: 'Select apps',
+				name: 'apps',
+				choices: prepareAppChoices(),
+				validate: validateAnswers,
+			},
+		])
+		.then((answers) => {
+			runWithFilter(answers['apps'])
+		})
+		.catch(inquirerCatch)
+}
+
+type InquirerChoices = Array<inquirer.Separator | { name: string }>
+
+function prepareAppChoices(): InquirerChoices {
+	return Object.entries(RUNNABLE_APPS).reduce<InquirerChoices>(
+		(acc, [type, apps]) => [
+			...acc,
+			new inquirer.Separator(` = ${type} apps = `),
+			...apps.map((app) => ({ name: app })),
+		],
+		[]
+	)
+}
+
+function inquirerCatch(error: any): void {
+	if (error.isTtyError) {
+		log("Prompt couldn't be rendered in the current environment")
+	} else {
+		log('Something else went wrong')
+	}
+}
+
+function validateAnswers(answers: string[]): true | string {
+	if (answers.length < 1) {
+		return 'You must choose at least one app.'
+	}
+
+	return true
 }
