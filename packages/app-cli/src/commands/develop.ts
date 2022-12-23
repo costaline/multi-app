@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 
-import { cmdSpawn } from '../helpers'
+import { cmdSpawn } from '../helpers/cmd'
 
 export function makeDevCommand(): Command {
 	const dev = new Command('develop')

@@ -1,8 +1,9 @@
 import { Command } from 'commander'
 
 import { ENVS_BY_APP } from '../constants'
-import { append, getEnvDateTitle, read } from '../helpers'
-import { log } from '../log'
+import { append, read } from '../helpers/file'
+import { log } from '../helpers/log'
+import { getEnvDateTitle } from '../helpers/misc'
 
 export function makePrepareEnvsCommand(): Command {
 	const prepareEnvs = new Command('prepare-envs')
