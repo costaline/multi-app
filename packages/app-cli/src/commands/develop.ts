@@ -8,6 +8,7 @@ export function makeDevCommand(): Command {
 	dev
 		.description('development mode')
 		.option('-d, --docker', 'run with docker')
+		.option('-f, --filter <apps...>', 'specify apps')
 		.action(action)
 
 	return dev
@@ -15,6 +16,7 @@ export function makeDevCommand(): Command {
 
 interface Options {
 	docker?: boolean
+	filter?: string[]
 }
 
 function action(options: Options): void {
@@ -30,6 +32,12 @@ function action(options: Options): void {
 			'--build',
 		])
 	} else {
-		// TODO
+		if (options.filter?.length) {
+			const apps = options.filter.map((app) => `--filter=${app}`)
+
+			cmdSpawn('yarn', ['dev', ...apps])
+		} else {
+			cmdSpawn('yarn', ['dev', '--filter=docs'])
+		}
 	}
 }
