@@ -133,6 +133,7 @@ module.exports = {
 				'@typescript-eslint/array-type': 'warn',
 				'@typescript-eslint/ban-ts-comment': 'warn',
 				'@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
+				'@typescript-eslint/dot-notation': 'off',
 				'@typescript-eslint/explicit-function-return-type': 'warn',
 				'@typescript-eslint/no-floating-promises': 'warn',
 				'@typescript-eslint/no-misused-promises': [
