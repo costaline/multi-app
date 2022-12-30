@@ -13,8 +13,9 @@
     "lint:style": "stylelint \"src/**/*.{css,astro,html}\""
   },
   "dependencies": {
+    "@astrojs/mdx": "^0.14.0",
     "@astrojs/tailwind": "^2.1.3",
-    "astro": "^1.6.0",
+    "astro": "^1.8.0",
     "global-css": "*",
     "tailwindcss": "^3.2.4"
   },

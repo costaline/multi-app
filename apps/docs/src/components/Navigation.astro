@@ -1,0 +1,34 @@
+---
+const { class: className } = Astro.props
+
+const links = [
+	{
+		title: 'HOME',
+		link: '/',
+	},
+	{
+		title: 'CLI',
+		link: '/cli',
+	},
+	{
+		title: 'ABOUT',
+		link: '/about',
+	},
+	{
+		title: 'STRAPI',
+		link: '/strapi',
+	},
+]
+---
+
+<nav class:list={[className, 'p-4']}>
+	<ul>
+		{
+			links.map(({ title, link }) => (
+				<li>
+					<a href={link}>{title}</a>
+				</li>
+			))
+		}
+	</ul>
+</nav>
