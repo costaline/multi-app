@@ -8,24 +8,31 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint:style": "stylelint \"src/**/*.{css,html}\""
+    "lint:style": "stylelint \"src/**/*.{css,html}\"",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
   },
   "dependencies": {
     "@types/node": "^18.11.9",
     "global-css": "*",
+    "lit-wc": "*",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "lit-wc": "*"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
-    "@vitejs/plugin-react": "^2.2.0",
-    "tsconfig-custom": "*",
+    "@vitejs/plugin-react": "^3.0.0",
     "eslint-config-custom": "*",
+    "happy-dom": "^8.1.1",
     "postcss-config-custom": "*",
     "stylelint-config-custom": "*",
-    "typescript": "^4.6.4",
-    "vite": "^3.2.0"
+    "tsconfig-custom": "*",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
+    "vitest": "^0.26.3"
   }
 }
