@@ -10,6 +10,7 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:style": "stylelint \"src/**/*.{css,html}\"",
     "test": "vitest run",
+    "test:ui": "vitest --ui",
     "test:watch": "vitest watch"
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "@vitejs/plugin-react": "^3.0.0",
+    "@vitest/ui": "^0.26.3",
     "eslint-config-custom": "*",
     "happy-dom": "^8.1.1",
     "postcss-config-custom": "*",
