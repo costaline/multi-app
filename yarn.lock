@@ -8664,6 +8664,11 @@ eslint-plugin-n@^15.4.0:
     resolve "^1.22.1"
     semver "^7.3.7"
 
+eslint-plugin-playwright@^0.11.2:
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-playwright/-/eslint-plugin-playwright-0.11.2.tgz#876057d4ab19d00b44bf004e27d5ace2c8bffada"
+  integrity sha512-uRLRLk7uTzc8NE6t4wBU8dijQwHvC66R/h7xwdM779jsJjMUtSmeaB8ayRkkpfwi+UU5BEfwvDANwmE+ccMVDw==
+
 eslint-plugin-prettier-vue@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier-vue/-/eslint-plugin-prettier-vue-4.2.0.tgz#f24d684a41f8fb112977302689248ffe68175548"
