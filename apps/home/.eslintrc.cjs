@@ -1,4 +1,4 @@
 module.exports = {
 	root: true,
-	extends: ["custom/react.js"],
+	extends: ["custom/react.js", "custom/vitest.js"],
 };
