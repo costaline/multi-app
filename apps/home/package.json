@@ -9,10 +9,10 @@
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:style": "stylelint \"src/**/*.{css,html}\"",
-    "test": "vitest run",
-    "test:ui": "vitest --ui",
-    "test:watch": "vitest watch",
-    "test:e2e": "start-server-and-test \"yarn dev\" 3000 \"cypress run\""
+    "test:unit": "vitest run",
+    "test:unit:ui": "vitest --ui",
+    "test:unit:watch": "vitest watch",
+    "test:e2e": "start-server-and-test \"yarn dev\" http://127.0.0.1:3000 \"cypress run\""
   },
   "dependencies": {
     "@types/node": "^18.11.9",

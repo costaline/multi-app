@@ -21,7 +21,9 @@
     "lint": "turbo run lint",
     "storybook": "turbo run storybook",
     "lint:style": "turbo run lint:style",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "test:unit": "turbo run test:unit",
+    "test:e2e": "turbo run test:e2e"
   },
   "dependencies": {
     "lit": "^2.4.0"

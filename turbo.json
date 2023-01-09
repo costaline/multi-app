@@ -11,6 +11,12 @@
 		"lint:style": {
 			"outputs": []
 		},
+		"test:unit": {
+			"cache": false
+		},
+		"test:e2e": {
+			"cache": false
+		},
     "dev": {
       "cache": false
     },
