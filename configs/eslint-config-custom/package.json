@@ -8,7 +8,8 @@
     "astro.js",
     "vue.js",
     "vitest.js",
-    "playwright.js"
+    "playwright.js",
+    "cypress.js"
   ],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.42.0",
@@ -19,6 +20,7 @@
     "eslint-config-turbo": "latest",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-astro": "^0.21.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-lit": "^1.6.1",
