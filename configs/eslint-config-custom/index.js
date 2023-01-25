@@ -84,16 +84,19 @@ module.exports = {
 						'^\\u0000',
 					],
 					[
-						// React
-						'^(react)$',
 						// Node.js builtins
+						'^node:',
 						`^(${require('module').builtinModules.join('|')})(/|$)`,
+					],
+					[
+						// Main framework/lib
+						'^(react|vue|lit)$',
 						// Other packages
 						'^@?\\w',
 					],
 					[
 						// Alias imports
-						'^(@|@@|@@(\\w+-?)*)(/.*(?<!\\.(jpe?g|png|svg|bmp|webp|css|scss|sass))$)',
+						'^(@|@@|@@(\\w+-?)*)(/.*(?<!\\.(jpe?g|png|svg|bmp|webp|css|scss|sass|styl|stylus|emcss|litcss))$)',
 						// Parent imports
 						'^\\.\\.(?!/?$)',
 						'^\\.\\./?$',
