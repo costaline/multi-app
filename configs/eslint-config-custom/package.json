@@ -9,7 +9,8 @@
     "vue.js",
     "vitest.js",
     "playwright.js",
-    "cypress.js"
+    "cypress.js",
+    "storybook.js"
   ],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.42.0",
