@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "global-css": "*",
-    "lit": "2.4.0"
+    "lit": "^2.6.1"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "7.0.0-alpha.50",
@@ -29,12 +29,12 @@
     "@storybook/web-components-vite": "7.0.0-alpha.50",
     "concurrently": "^7.5.0",
     "eslint-config-custom": "*",
-    "lit-html": "2.4.0",
+    "lit-html": "^2.6.1",
     "postcss-config-custom": "*",
     "storybook": "7.0.0-alpha.50",
     "stylelint-config-custom": "*",
     "tsconfig-custom": "*",
-    "typescript": "^4.6.4",
-    "vite": "^3.2.0"
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4"
   }
 }
