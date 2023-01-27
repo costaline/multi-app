@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "global-css": "*",
-    "lit": "*"
+    "lit": "2.4.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "7.0.0-alpha.50",
