@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "./dist/svelte-wc.js",
+  "main": "./dist/main.js",
   "exports": {
-    ".": "./dist/svelte-wc.js"
+    "./": "./dist/"
   },
   "types": "./types/main.d.ts",
   "files": [

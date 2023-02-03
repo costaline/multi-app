@@ -1,6 +1,6 @@
 import { useState } from 'react'
 // import {MyElement} from 'wc'
-
+import 'svelte-wc/Counter'
 import './App.css'
 import reactLogo from './assets/react.svg'
 
@@ -24,6 +24,7 @@ function App() {
 
 			<div style={{border: '2px dashed red'}}>
 				42
+				{/* @ts-expect-error jsx */}
 				<my-counter />
 			</div>
 
