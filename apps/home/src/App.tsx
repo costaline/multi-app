@@ -22,6 +22,11 @@ function App() {
 				</a>
 			</div>
 
+			<div style={{border: '2px dashed red'}}>
+				42
+				<my-counter />
+			</div>
+
 			{/*<my-element docsHint={`hello from counter: ${count}`}></my-element>*/}
 			<demo-element name="REACT">Some text</demo-element>
 
