@@ -21,6 +21,7 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.0",
     "@tsconfig/svelte": "^3.0.0",
+    "eslint-config-custom": "*",
     "svelte": "^3.54.0",
     "svelte-check": "^2.10.0",
     "tsconfig-custom": "*",

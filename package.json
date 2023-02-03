@@ -37,6 +37,7 @@
     "eslint-config-custom": "*",
     "prettier": "latest",
     "prettier-plugin-astro": "^0.7.0",
+    "prettier-plugin-svelte": "^2.9.0",
     "sass": "^1.56.0",
     "start-server-and-test": "^1.15.2",
     "turbo": "latest",
