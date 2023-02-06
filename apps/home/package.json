@@ -19,7 +19,8 @@
     "global-css": "*",
     "lit-wc": "*",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "svelte-wc": "*"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",

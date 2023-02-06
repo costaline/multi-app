@@ -1,6 +1,6 @@
 import { useState } from 'react'
 // import {MyElement} from 'wc'
-
+import 'svelte-wc/Counter'
 import './App.css'
 import reactLogo from './assets/react.svg'
 
@@ -20,6 +20,12 @@ function App() {
 				<a href="https://reactjs.org" rel="noreferrer" target="_blank">
 					<img alt="React logo" className="logo react" src={reactLogo} />
 				</a>
+			</div>
+
+			<div style={{border: '2px dashed red'}}>
+				42
+				{/* @ts-expect-error jsx */}
+				<my-counter />
 			</div>
 
 			{/*<my-element docsHint={`hello from counter: ${count}`}></my-element>*/}
