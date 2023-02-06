@@ -16,12 +16,22 @@
     "dev": "concurrently -n dev,watch-build \"yarn vite\" \"yarn vite build --watch\"",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "storybook": "cross-env STORYBOOK_MODE=true storybook dev -p 6006 --no-open",
+    "build-storybook": "cross-env STORYBOOK_MODE=true storybook build"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "7.0.0-beta.41",
+    "@storybook/addon-interactions": "7.0.0-beta.41",
+    "@storybook/addon-links": "7.0.0-beta.41",
+    "@storybook/blocks": "7.0.0-beta.41",
+    "@storybook/svelte": "7.0.0-beta.41",
+    "@storybook/svelte-vite": "7.0.0-beta.41",
+    "@storybook/testing-library": "^0.0.14-next.1",
     "@sveltejs/vite-plugin-svelte": "^2.0.0",
     "@tsconfig/svelte": "^3.0.0",
     "eslint-config-custom": "*",
+    "storybook": "7.0.0-beta.41",
     "svelte": "^3.54.0",
     "svelte-check": "^2.10.0",
     "tsconfig-custom": "*",
