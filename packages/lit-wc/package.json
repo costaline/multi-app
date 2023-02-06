@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "./dist/lit-wc.js",
+  "main": "./dist/index.js",
   "exports": {
-    ".": "./dist/lit-wc.js"
+    ".": "./dist/index.js",
+    "./": "./"
   },
   "types": "./types/index.d.ts",
   "files": [

@@ -1,6 +1,7 @@
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
+import components from './components'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,8 +15,15 @@ export default defineConfig({
 
   build: {
     lib: {
-      entry: 'src/index.ts',
-      formats: ['es']
+      entry: ['src/index.ts', ...components],
+      formats: ['es'],
+			fileName: (fmt,entryName) => {
+				const name = entryName
+					.split('/')
+					.pop()
+
+				return `${name}.js`
+			}
     },
     rollupOptions: {
       external: /^lit/,
