@@ -13,6 +13,8 @@ module.exports = {
     "options": {}
   },
   "docs": {
-    "docsPage": true
+		enabled: false,
+		defaultName: 'Documentation',
+		autodocs: true,
   }
 }
