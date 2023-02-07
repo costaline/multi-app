@@ -25,11 +25,11 @@
 		},
 		"home#dev": {
 			"env": ["APP_HOME_PORT"],
-			"dependsOn": ["lit-wc#build"]
+			"dependsOn": ["lit-wc#build", "svelte-wc#build"]
 		},
 		"about#dev": {
 			"env": ["APP_ABOUT_PORT"],
-			"dependsOn": ["lit-wc#build"]
+			"dependsOn": ["lit-wc#build", "svelte-wc#build"]
 		},
 		"storybook": {
 			"cache": false

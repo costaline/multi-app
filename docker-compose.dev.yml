@@ -13,6 +13,18 @@ x-lit-wc-type-volume:
   source: ./packages/lit-wc/types
   target: /app/packages/lit-wc/types
 
+x-svelte-wc-dist-volume:
+  &svelte-wc-dist-volume
+  type: bind
+  source: ./packages/svelte-wc/dist
+  target: /app/packages/svelte-wc/dist
+
+x-svelte-wc-type-volume:
+  &svelte-wc-types-volume
+  type: bind
+  source: ./packages/svelte-wc/types
+  target: /app/packages/svelte-wc/types
+
 services:
   home:
     build:
@@ -28,6 +40,8 @@ services:
     volumes:
       - *lit-wc-dist-volume
       - *lit-wc-types-volume
+      - *svelte-wc-dist-volume
+      - *svelte-wc-types-volume
       - ./apps/home/src:/app/apps/home/src
       - ./apps/home/public:/app/apps/home/public
 
@@ -45,6 +59,8 @@ services:
     volumes:
       - *lit-wc-dist-volume
       - *lit-wc-types-volume
+      - *svelte-wc-dist-volume
+      - *svelte-wc-types-volume
       - ./apps/about/src:/app/apps/about/src
       - ./apps/about/public:/app/apps/about/public
 
