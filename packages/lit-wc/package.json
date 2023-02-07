@@ -29,7 +29,6 @@
     "@storybook/blocks": "7.0.0-beta.41",
     "@storybook/web-components": "7.0.0-beta.41",
     "@storybook/web-components-vite": "7.0.0-beta.41",
-    "concurrently": "^7.5.0",
     "eslint-config-custom": "*",
     "lit-html": "^2.6.1",
     "postcss-config-custom": "*",
