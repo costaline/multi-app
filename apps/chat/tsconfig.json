@@ -1,0 +1,11 @@
+{
+	"extends": "tsconfig-custom/solidjs.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@@/*": ["./src/*"]
+		}
+	},
+	"include": ["src/**/*.ts", "src/**/*.tsx"],
+	"references": [{ "path": "./tsconfig.node.json" }]
+}
