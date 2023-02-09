@@ -13,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "eslint-config-custom": "*",
+    "stylelint-config-custom": "*",
     "tsconfig-custom": "*",
     "typescript": "^4.9.5",
     "vite": "^4.1.1",
