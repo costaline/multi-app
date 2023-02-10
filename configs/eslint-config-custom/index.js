@@ -138,6 +138,13 @@ module.exports = {
 				'@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
 				'@typescript-eslint/dot-notation': 'off',
 				'@typescript-eslint/explicit-function-return-type': 'warn',
+				'@typescript-eslint/no-confusing-void-expression': [
+					'warn',
+					{
+						ignoreArrowShorthand: true,
+						ignoreVoidOperator: true,
+					}
+				],
 				'@typescript-eslint/no-floating-promises': 'warn',
 				'@typescript-eslint/no-misused-promises': [
 					'warn',
