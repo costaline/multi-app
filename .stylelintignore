@@ -1,2 +1,4 @@
+apps/chat-server/**/*
+
 .stylelintrc.*
 **/configs/**/*
