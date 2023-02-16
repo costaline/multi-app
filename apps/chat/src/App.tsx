@@ -1,26 +1,19 @@
+import { Route, Routes } from '@solidjs/router'
+import { lazy } from 'solid-js'
+
 import type { Component } from 'solid-js'
 
-import styles from './App.module.css'
-import logo from './logo.svg'
+const Main = lazy(async () => await import('./pages/index'))
+const Room = lazy(async () => await import('./pages/room'))
+const NotFound404 = lazy(async () => await import('./pages/404'))
 
 const App: Component = () => {
 	return (
-		<div class={styles.App}>
-			<header class={styles.header}>
-				<img src={logo} class={styles.logo} alt="logo" />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					class={styles.link}
-					href="https://github.com/solidjs/solid"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn Solid
-				</a>
-			</header>
-		</div>
+		<Routes>
+			<Route path="/room/:id" component={Room} />
+			<Route path="/" component={Main} />
+			<Route path="/*" component={NotFound404} />
+		</Routes>
 	)
 }
 

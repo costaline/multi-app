@@ -8,6 +8,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@solidjs/router": "^0.7.0",
     "solid-js": "^1.6.10"
   },
   "license": "MIT",
