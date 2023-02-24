@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.7.0",
-    "solid-js": "^1.6.10"
+    "freeice": "^2.2.2",
+    "socket.io-client": "^4.6.1",
+    "solid-js": "^1.6.10",
+    "uuid": "^9.0.0"
   },
   "license": "MIT",
   "devDependencies": {

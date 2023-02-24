@@ -3,7 +3,7 @@ import { lazy } from 'solid-js'
 
 import type { Component } from 'solid-js'
 
-const Main = lazy(async () => await import('./pages/index'))
+const Main = lazy(async () => await import('./pages'))
 const Room = lazy(async () => await import('./pages/room'))
 const NotFound404 = lazy(async () => await import('./pages/404'))
 
