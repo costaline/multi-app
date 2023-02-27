@@ -1,7 +1,7 @@
 import { useParams } from '@solidjs/router'
 import { For } from 'solid-js'
 
-import { useWebRTC } from '../hooks/useWebRTC'
+import { LOCAL_VIDEO, useWebRTC } from '../hooks/useWebRTC'
 
 const Room = () => {
 	const { id: roomID } = useParams()
@@ -20,7 +20,7 @@ const Room = () => {
 								}}
 								autoPlay
 								playsInline
-								muted
+								muted={clientID === LOCAL_VIDEO}
 							/>
 						</div>
 					)
