@@ -42,6 +42,13 @@ module.exports = {
 		'dot-notation': 'off',
 		'lines-between-class-members': ['warn', 'always'],
 		'no-console': 'warn',
+		'no-unused-vars': [
+			'warn',
+			{
+				varsIgnorePattern: '^_$',
+				argsIgnorePattern: '^_$',
+			},
+		],
 		'no-useless-escape': 'off',
 		'object-shorthand': ['warn', 'properties'],
 		'padded-blocks': ['warn', 'never'],
@@ -133,6 +140,8 @@ module.exports = {
 			files: ['*.ts', '*.tsx'],
 
 			rules: {
+				'no-unused-vars': 'off',
+
 				'@typescript-eslint/array-type': 'warn',
 				'@typescript-eslint/ban-ts-comment': 'warn',
 				'@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
