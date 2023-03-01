@@ -35,7 +35,7 @@
     "svelte-check": "^2.10.0",
     "tsconfig-custom": "*",
     "tslib": "^2.4.1",
-    "typescript": "^4.9.3",
+    "typescript": "^4.9.5",
     "vite": "^4.1.1",
     "vite-plugin-dts": "^1.7.2"
   }
