@@ -58,7 +58,7 @@ module.exports = {
 				'*.tsx',
 				'**/*.tsx',
 			],
-			extends: ['./css-in-js.cjs']
+			extends: ['./css-in-js.js']
 		}
 	]
 }
