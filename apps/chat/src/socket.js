@@ -1,6 +1,6 @@
 import { io } from 'socket.io-client'
 
-export const socket = io('http://localhost:9999', {
+export const socket = io(import.meta.env.VITE_SOCKET_URI, {
 	forceNew: true,
 	reconnectionAttempts: Infinity,
 	timeout: 10_000,

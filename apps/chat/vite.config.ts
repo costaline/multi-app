@@ -1,21 +1,26 @@
 import { fileURLToPath, URL } from 'node:url'
-import { defineConfig } from 'vite';
-import solidPlugin from 'vite-plugin-solid';
 
-export default defineConfig({
-  plugins: [solidPlugin()],
+import { defineConfig, loadEnv } from 'vite'
+import solidPlugin from 'vite-plugin-solid'
 
-  build: {
-    target: 'esnext',
-  },
+export default defineConfig(({ mode }) => {
+	const env = loadEnv(mode, process.cwd(), '')
 
-	resolve: {
-		alias: {
-			'@@': fileURLToPath(new URL('./src', import.meta.url)),
+	return {
+		plugins: [solidPlugin()],
+
+		build: {
+			target: 'esnext',
 		},
-	},
 
-  server: {
-    port: 3003,
-  },
-});
+		resolve: {
+			alias: {
+				'@@': fileURLToPath(new URL('./src', import.meta.url)),
+			},
+		},
+
+		server: {
+			port: Number(env.PORT || env.APP_CHAT_PORT) || 3003,
+		},
+	}
+})
