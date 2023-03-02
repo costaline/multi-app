@@ -1,0 +1,28 @@
+version: "3.9"
+
+x-do-not-start:
+  &do-not-start
+  profiles:
+    - do-not-start
+
+services:
+  home: *do-not-start
+
+  about: *do-not-start
+
+  chat:
+    profiles:
+      - chat
+
+  chat-server:
+    profiles:
+      - chat
+
+  nginx:
+    depends_on:
+      - chat
+      - chat-server
+    volumes:
+      - ./nginx/nginx.dev._chat_.conf:/etc/nginx/conf.d/nginx.conf
+
+  strapi: *do-not-start

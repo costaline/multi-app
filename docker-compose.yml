@@ -29,6 +29,36 @@ services:
     networks:
       - multi-app-network
 
+  chat:
+    container_name: multi-app-chat
+    build:
+      context: .
+      dockerfile: ./apps/chat/Dockerfile
+    restart: unless-stopped
+    command: npx -y serve -s .
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+      - VITE_SOCKET_URI=http://chat.multi-app.local
+    networks:
+      - multi-app-network
+      - multi-app-chat-network
+
+  chat-server:
+    container_name: multi-app-chat-server
+    build:
+      context: .
+      dockerfile: ./apps/chat-server/Dockerfile
+    restart: unless-stopped
+    command: npm run start
+    ports:
+      - "4002:4002"
+    environment:
+      - PORT=4002
+    networks:
+      - multi-app-chat-network
+
   nginx:
     build:
       context: .
@@ -40,8 +70,10 @@ services:
       - home
       - about
       - strapi
+      - chat
     networks:
       - multi-app-network
+      - multi-app-chat-network
 
   strapi:
     build:
@@ -60,4 +92,6 @@ services:
 
 networks:
   multi-app-network:
+    driver: bridge
+  multi-app-chat-network:
     driver: bridge

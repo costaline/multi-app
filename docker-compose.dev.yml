@@ -64,6 +64,37 @@ services:
       - ./apps/about/src:/app/apps/about/src
       - ./apps/about/public:/app/apps/about/public
 
+  chat:
+    build:
+      context: .
+      dockerfile: ./apps/chat/Dockerfile.dev
+    command: yarn dev --filter=chat
+    stdin_open: true
+    tty: true
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+      - VITE_SOCKET_URI=http://chat.multi-app.local
+    volumes:
+      - ./apps/chat/src:/app/apps/chat/src
+      - ./apps/chat/public:/app/apps/chat/public
+
+  chat-server:
+    build:
+      context: .
+      dockerfile: ./apps/chat-server/Dockerfile.dev
+    command: yarn dev --filter=chat-server
+    stdin_open: true
+    tty: true
+    ports:
+      - "4002:4002"
+    environment:
+      - PORT=4002
+    volumes:
+      - ./apps/chat-server/src:/app/apps/chat-server/src
+      - ./apps/chat-server/public:/app/apps/chat-server/public
+
   nginx:
     build:
       context: .

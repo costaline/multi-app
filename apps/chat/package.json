@@ -1,0 +1,26 @@
+{
+  "name": "chat",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@solidjs/router": "^0.7.0",
+    "freeice": "^2.2.2",
+    "socket.io-client": "^4.6.1",
+    "solid-js": "^1.6.10",
+    "uuid": "^9.0.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "stylelint-config-custom": "*",
+    "tsconfig-custom": "*",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.1",
+    "vite-plugin-solid": "^2.5.0"
+  }
+}

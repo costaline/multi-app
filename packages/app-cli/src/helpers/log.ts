@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 
 const base = (target: string) => {
-	return (...message: any[]) => console.log(target, message)
+	return (...message: any[]) => console.log(target, ...message)
 }
 
 const chalkLog = {
