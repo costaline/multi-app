@@ -1,6 +1,8 @@
 import { io } from 'socket.io-client'
 
-export const socket = io(import.meta.env.VITE_SOCKET_URI, {
+const uri = import.meta.env.VITE_SOCKET_URI || 'http://localhost:4002'
+
+export const socket = io(uri, {
 	forceNew: true,
 	reconnectionAttempts: Infinity,
 	timeout: 10_000,

@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "nodemon ./src/index.js",
+    "dev": "nodemon -L --inspect=0.0.0.0 ./src/index.js",
     "start": "node ./src/index.js"
   },
   "dependencies": {

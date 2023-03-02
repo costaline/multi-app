@@ -10,7 +10,6 @@ const app = express()
 const server = http.createServer(app)
 const io = new Server(server)
 
-// TODO: add env
 const PORT = process.env.PORT || 4002
 
 function getClientRooms() {

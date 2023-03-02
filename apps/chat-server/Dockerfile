@@ -1,0 +1,16 @@
+FROM node:18.12.0-alpine
+
+RUN apk add --no-cache libc6-compat
+RUN apk update
+
+WORKDIR /app
+
+RUN yarn global add turbo
+
+COPY package.json yarn.lock ./
+COPY configs ./configs/
+COPY apps/chat-server/package.json ./apps/chat-server/package.json
+
+RUN yarn install
+
+COPY . .

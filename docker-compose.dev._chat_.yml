@@ -14,9 +14,14 @@ services:
     profiles:
       - chat
 
+  chat-server:
+    profiles:
+      - chat
+
   nginx:
     depends_on:
       - chat
+      - chat-server
     volumes:
       - ./nginx/nginx.dev._chat_.conf:/etc/nginx/conf.d/nginx.conf
 
