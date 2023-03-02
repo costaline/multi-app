@@ -3,6 +3,7 @@ import inquirer from 'inquirer'
 
 import { RUNNABLE_APPS } from '../constants'
 import { cmdSpawn } from '../helpers/cmd'
+import { isExist as isFileExist } from '../helpers/file'
 import { log } from '../helpers/log'
 
 export function makeDevCommand(): Command {
@@ -11,6 +12,7 @@ export function makeDevCommand(): Command {
 	dev
 		.description('development mode')
 		.option('-d, --docker', 'run with docker')
+		.option('-p, --profile <profile>', 'use profile in docker compose')
 		.option('-f, --filter <apps...>', 'specify apps')
 		.option('-i, --interactive', 'specify apps interactively')
 		.action(action)
@@ -20,19 +22,32 @@ export function makeDevCommand(): Command {
 
 interface Options {
 	docker?: boolean
+	profile?: string
 	filter?: string[]
 	interactive?: boolean
 }
 
 function action(options: Options): void {
 	if (options.docker) {
+		let profile: string[] = []
+
+		if (options.profile) {
+			const profileFile = `docker-compose.dev._${options.profile}_.yml`
+
+			if (!isFileExist(profileFile)) return
+
+			profile = ['-f', profileFile, '--profile', options.profile]
+		}
+
 		runWithFilter(['lit-wc'])
+
 		cmdSpawn('docker', [
 			'compose',
 			'-f',
 			'docker-compose.yml',
 			'-f',
 			'docker-compose.dev.yml',
+			...profile,
 			'up',
 			'--build',
 		])

@@ -1,6 +1,15 @@
+import { existsSync } from 'fs'
 import fs from 'fs/promises'
 
 import { log } from './log'
+
+export function isExist(path: string): boolean {
+	const res = existsSync(path)
+
+	if (!res) log.error(`file \"${path}\" doesn't exist`)
+
+	return res
+}
 
 export async function read(pathToFile: string): Promise<string> {
 	try {
