@@ -20,7 +20,11 @@ export default defineConfig(({ mode }) => {
 		},
 
 		server: {
+			host: '0.0.0.0',
 			port: Number(env.PORT || env.APP_CHAT_PORT) || 3003,
+			watch: {
+				usePolling: true,
+			},
 		},
 	}
 })

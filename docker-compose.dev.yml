@@ -64,6 +64,21 @@ services:
       - ./apps/about/src:/app/apps/about/src
       - ./apps/about/public:/app/apps/about/public
 
+  chat:
+    build:
+      context: .
+      dockerfile: ./apps/chat/Dockerfile.dev
+    command: yarn dev --filter=chat
+    stdin_open: true
+    tty: true
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+    volumes:
+      - ./apps/chat/src:/app/apps/chat/src
+      - ./apps/chat/public:/app/apps/chat/public
+
   nginx:
     build:
       context: .
