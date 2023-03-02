@@ -12,6 +12,7 @@ COPY configs ./configs
 COPY apps/about/package.json ./apps/about/package.json
 
 COPY packages/lit-wc/package.json ./packages/lit-wc/package.json
+COPY packages/svelte-wc/package.json ./packages/svelte-wc/package.json
 COPY packages/global-css/package.json ./packages/global-css/package.json
 
 RUN yarn install
