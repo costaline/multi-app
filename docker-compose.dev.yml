@@ -75,7 +75,7 @@ services:
       - "3002:3002"
     environment:
       - PORT=3002
-      - VITE_SOCKET_URI=http://chat.multi-app.local
+      - VITE_SOCKET_URI=https://chat.multi-app.local
     volumes:
       - ./apps/chat/src:/app/apps/chat/src
       - ./apps/chat/public:/app/apps/chat/public

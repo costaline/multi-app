@@ -24,5 +24,6 @@ services:
       - chat-server
     volumes:
       - ./nginx/nginx.dev._chat_.conf:/etc/nginx/conf.d/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
 
   strapi: *do-not-start

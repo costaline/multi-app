@@ -40,7 +40,7 @@ services:
       - "3002:3002"
     environment:
       - PORT=3002
-      - VITE_SOCKET_URI=http://chat.multi-app.local
+      - VITE_SOCKET_URI=htts://chat.multi-app.local
     networks:
       - multi-app-network
       - multi-app-chat-network
@@ -66,11 +66,13 @@ services:
     container_name: multi-app-nginx
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - home
       - about
       - strapi
       - chat
+      - chat-server
     networks:
       - multi-app-network
       - multi-app-chat-network
