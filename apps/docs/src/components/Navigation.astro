@@ -1,32 +1,48 @@
 ---
 const { class: className } = Astro.props
 
-const links = [
-	{
-		title: 'HOME',
-		link: '/',
-	},
-	{
-		title: 'CLI',
-		link: '/cli',
-	},
-	{
-		title: 'ABOUT',
-		link: '/about',
-	},
-	{
-		title: 'STRAPI',
-		link: '/strapi',
-	},
-]
+const pages = (await Astro.glob(
+	'../pages/**/*.{md,mdx,astro}'
+)) satisfies Array<{ url: string; file: string }>
+
+const links = pages
+	.map(({ url, file }) => ({
+		url: url || '/',
+		title: url.split('/').pop() || 'main',
+		level: url.match(/\//g)?.length || 0,
+		file,
+	}))
+	.sort((a, b) => a.url.localeCompare(b.url))
 ---
 
-<nav class:list={[className, 'p-4']}>
+<nav class:list={[className, 'p-4', 'overflow-auto', 'h-screen']}>
 	<ul>
 		{
-			links.map(({ title, link }) => (
-				<li>
-					<a href={link}>{title}</a>
+			links.map(({ url, title, level }) => (
+				<li class="font-mono whitespace-nowrap">
+					<a
+						href={url}
+						class:list={[
+							'flex',
+							{ 'pointer-events-none': Astro.url.pathname === url },
+						]}
+					>
+						<>
+							<span class="text-slate-200">{''.padStart(level * 2, '-')}</span>
+							<span
+								class:list={[
+									Astro.url.pathname === url
+										? 'font-bold italic text-black'
+										: 'text-slate-600',
+									'flex-grow',
+									'hover:underline',
+									'underline-offset-4',
+								]}
+							>
+								{title}
+							</span>
+						</>
+					</a>
 				</li>
 			))
 		}
