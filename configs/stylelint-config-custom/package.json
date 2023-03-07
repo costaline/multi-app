@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "main": "index.js",
   "files": [
-    "lit.js"
+    "css.js",
+    "css-in-js.js",
+    "lit.js",
+    "sass.js",
+    "vue.js"
   ],
   "license": "MIT",
   "dependencies": {
@@ -25,9 +29,7 @@
     "stylelint-config-standard-scss": "^6.0.0",
     "stylelint-prettier": "^2.0.0"
   },
-  "devDependencies": {
-    "typescript": "^4.7.4"
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }

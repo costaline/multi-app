@@ -42,6 +42,13 @@ module.exports = {
 		'dot-notation': 'off',
 		'lines-between-class-members': ['warn', 'always'],
 		'no-console': 'warn',
+		'no-unused-vars': [
+			'warn',
+			{
+				varsIgnorePattern: '^_$',
+				argsIgnorePattern: '^_$',
+			},
+		],
 		'no-useless-escape': 'off',
 		'object-shorthand': ['warn', 'properties'],
 		'padded-blocks': ['warn', 'never'],
@@ -84,16 +91,19 @@ module.exports = {
 						'^\\u0000',
 					],
 					[
-						// React
-						'^(react)$',
 						// Node.js builtins
+						'^node:',
 						`^(${require('module').builtinModules.join('|')})(/|$)`,
+					],
+					[
+						// Main framework/lib
+						'^(react|vue|lit)$',
 						// Other packages
 						'^@?\\w',
 					],
 					[
 						// Alias imports
-						'^(@|@@|@@(\\w+-?)*)(/.*(?<!\\.(jpe?g|png|svg|bmp|webp|css|scss|sass))$)',
+						'^(@|@@|@@(\\w+-?)*)(/.*(?<!\\.(jpe?g|png|svg|bmp|webp|css|scss|sass|styl|stylus|emcss|litcss))$)',
 						// Parent imports
 						'^\\.\\.(?!/?$)',
 						'^\\.\\./?$',
@@ -130,11 +140,20 @@ module.exports = {
 			files: ['*.ts', '*.tsx'],
 
 			rules: {
+				'no-unused-vars': 'off',
+
 				'@typescript-eslint/array-type': 'warn',
 				'@typescript-eslint/ban-ts-comment': 'warn',
 				'@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
 				'@typescript-eslint/dot-notation': 'off',
 				'@typescript-eslint/explicit-function-return-type': 'warn',
+				'@typescript-eslint/no-confusing-void-expression': [
+					'warn',
+					{
+						ignoreArrowShorthand: true,
+						ignoreVoidOperator: true,
+					}
+				],
 				'@typescript-eslint/no-floating-promises': 'warn',
 				'@typescript-eslint/no-misused-promises': [
 					'warn',
@@ -164,15 +183,6 @@ module.exports = {
 					},
 				],
 				'@typescript-eslint/triple-slash-reference': 'warn',
-			},
-		},
-
-		{
-			files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
-			extends: ['plugin:storybook/recommended'],
-			rules: {
-				'@typescript-eslint/consistent-type-assertions': 'off',
-				'@typescript-eslint/dot-notation': 'off',
 			},
 		},
 	],

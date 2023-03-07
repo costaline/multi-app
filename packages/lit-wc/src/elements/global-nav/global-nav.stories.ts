@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/web-components'
 
 const meta: Meta<GlobalNavProps> = {
 	title: 'Global Nav',
-	tags: ['docsPage'],
+	tags: ['autodocs'],
 	parameters: {
 		// layout: 'centered',
 	},

@@ -13,6 +13,18 @@ x-lit-wc-type-volume:
   source: ./packages/lit-wc/types
   target: /app/packages/lit-wc/types
 
+x-svelte-wc-dist-volume:
+  &svelte-wc-dist-volume
+  type: bind
+  source: ./packages/svelte-wc/dist
+  target: /app/packages/svelte-wc/dist
+
+x-svelte-wc-type-volume:
+  &svelte-wc-types-volume
+  type: bind
+  source: ./packages/svelte-wc/types
+  target: /app/packages/svelte-wc/types
+
 services:
   home:
     build:
@@ -28,6 +40,8 @@ services:
     volumes:
       - *lit-wc-dist-volume
       - *lit-wc-types-volume
+      - *svelte-wc-dist-volume
+      - *svelte-wc-types-volume
       - ./apps/home/src:/app/apps/home/src
       - ./apps/home/public:/app/apps/home/public
 
@@ -45,8 +59,41 @@ services:
     volumes:
       - *lit-wc-dist-volume
       - *lit-wc-types-volume
+      - *svelte-wc-dist-volume
+      - *svelte-wc-types-volume
       - ./apps/about/src:/app/apps/about/src
       - ./apps/about/public:/app/apps/about/public
+
+  chat:
+    build:
+      context: .
+      dockerfile: ./apps/chat/Dockerfile.dev
+    command: yarn dev --filter=chat
+    stdin_open: true
+    tty: true
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+      - VITE_SOCKET_URI=https://chat.multi-app.local
+    volumes:
+      - ./apps/chat/src:/app/apps/chat/src
+      - ./apps/chat/public:/app/apps/chat/public
+
+  chat-server:
+    build:
+      context: .
+      dockerfile: ./apps/chat-server/Dockerfile.dev
+    command: yarn dev --filter=chat-server
+    stdin_open: true
+    tty: true
+    ports:
+      - "4002:4002"
+    environment:
+      - PORT=4002
+    volumes:
+      - ./apps/chat-server/src:/app/apps/chat-server/src
+      - ./apps/chat-server/public:/app/apps/chat-server/public
 
   nginx:
     build:

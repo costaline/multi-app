@@ -7,112 +7,11 @@ function print_row {
 	printf "  %-10s %-10s\n" "$1" "$2"
 }
 ################################################################################
-##################################### PROD #####################################
+################################### TASKS ###################################
 ################################################################################
-function prod_with_vagrant_start {
-	vagrant up
-}
-
-function prod_with_vagrant_stop {
-	vagrant halt
-}
-
-function prod_with_vagrant_destroy {
-	vagrant destroy
-}
-
-function task:prod_with_vagrant {
-	local target=$1
-	shift
-
-	case $target in
-		start) prod_with_vagrant_start "$@";;
-		stop) prod_with_vagrant_stop "$@";;
-		destroy) prod_with_vagrant_destroy "$@";;
-		*)
-			echo "options:"
-			print_row "start" "start vm"
-			print_row "stop" "stop vm"
-			print_row "destroy" "destroy vm"
-			;;
-	esac
-}
-################################################################################
-################################# PROD DOCKER ##################################
-################################################################################
-function prod_with_docker_start {
-	docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build
-}
-
-function task:prod_with_docker {
-	local target=$1
-	shift
-
-	case $target in
-		start) prod_with_docker_start "$@";;
-		*)
-			echo "options:"
-			print_row "start" "start vm"
-			;;
-	esac
-}
-################################################################################
-###################################### DEV #####################################
-################################################################################
-function dev_with_docker_start {
-	#	run in parallel
-	yarn dev --filter=lit-wc &
-	docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
-}
-
-function task:dev_with_docker {
-	local target=$1
-	shift
-
-	case $target in
-		start) dev_with_docker_start "$@";;
-		*)
-			echo "options:"
-			print_row "start" "start vm"
-			;;
-	esac
-}
-################################################################################
-################################## DEV SIMPLE ##################################
-################################################################################
-function dev_simple_prepare {
-	local target
-	target="./apps/strapi/.env"
-
-	{
-		printf '#%.0s' {1..28} && echo -n " "
-		echo -n "$(date +%F\ \(%a\)\ %H:%M)" # 2022-12-05 (Mon) 12:33
-		echo -n " " && printf '#%.0s' {1..28} && echo ""
-		echo "# copied from './.envs/strapi/.env'"
-		cat ./.envs/strapi/.env
-		echo ""
-		echo "# copied from './.envs/strapi/.env.development'"
-		cat ./.envs/strapi/.env.development
-		printf '#%.0s' {1..80} && echo ""
-	} >> $target
-}
-
-function dev_simple_start {
-	echo "start"
-}
-
-function task:dev_simple {
-	local target=$1
-	shift
-
-	case $target in
-		start) dev_simple_start "$@";;
-		prepare) dev_simple_prepare "$@";;
-		*)
-			echo "options:"
-			print_row "start" "start vm"
-			;;
-	esac
+function task:app-cli {
+	# shellcheck disable=SC2068
+	app-cli $@
 }
 ################################################################################
 ################################### TASKFILE ###################################
@@ -131,8 +30,8 @@ function task:help {
 
 TIMEFORMAT="Task completed in %3lR"
 # shellcheck disable=SC2145
-time "task:${@:-default}"
-################################################################################
+time (task:"${@:-default}" && echo "")
+################################################################################v
 ##################################### REFS #####################################
 ################################################################################
 # https://github.com/adriancooney/Taskfile
