@@ -19,12 +19,34 @@ const { title } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="overflow-hidden">
+	<body class="overflow-hidden dark:bg-[#282828] dark:text-amber-100">
 		<div class="container mx-auto grid grid-cols-6">
-			<Navigation class="col-span-1 border-r-2 border-black" />
+			<Navigation
+				class="col-span-1 border-r-2 border-black dark:border-amber-100"
+			/>
 			<main class="col-span-5 overflow-y-auto h-screen p-4">
 				<slot />
 			</main>
 		</div>
 	</body>
 </html>
+
+<script is:inline>
+	const theme = localStorage?.getItem('theme') || 'light'
+
+	document.documentElement.setAttribute('data-color-scheme', theme)
+</script>
+
+<script>
+	import '@@/helpers/color-scheme'
+</script>
+
+<style>
+	[data-color-scheme='dark'] {
+		color-scheme: dark;
+	}
+
+	[data-color-scheme='light'] {
+		color-scheme: light;
+	}
+</style>
